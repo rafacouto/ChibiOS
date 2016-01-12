@@ -1,5 +1,5 @@
 /*
-    ChibiOS/RT - Copyright (C) 2006-2013 Giovanni Di Sirio
+    ChibiOS/RT - Copyright (C) 2006-2016 Giovanni Di Sirio
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -41,7 +41,15 @@
 /*
  * IO pins assignments.
  */
-#define GPIOB_LED               0
+#define GPIOA_USART1_TX         9   // PA9
+#define GPIOA_USART1_RX         10  // PA10
+#define GPIOA_USBDM             11  // PA11
+#define GPIOA_USBDP             12  // PA12
+#define GPIOB_LED               0   // PB0
+#define GPIOC_OSC32_IN          14  // PC14
+#define GPIOC_OSC32_OUT         15  // PC15
+#define GPIOD_OSC_IN            0   // PD0
+#define GPIOD_OSC_OUT           1   // PD1
 
 
 /*
@@ -92,16 +100,18 @@
 /*
  * Port C setup.
  * Everything input with pull-up except:
+ * PC14 - Normal input      (OSC32_IN).
+ * PC15 - Normal input      (OSC32_OUT).
  */
 #define VAL_GPIOCCRL            0x88888888      /*  PC7...PC0 */
-#define VAL_GPIOCCRH            0x88888888      /* PC15...PC8 */
+#define VAL_GPIOCCRH            0x44888888      /* PC15...PC8 */
 #define VAL_GPIOCODR            0xFFFFFFFF
 
 /*
  * Port D setup.
  * Everything input with pull-up except:
- * PD0  - Normal input (XTAL).
- * PD1  - Normal input (XTAL).
+ * PD0  - Normal input      (OSC_IN).
+ * PD1  - Normal input      (OSC_OUT).
  */
 #define VAL_GPIODCRL            0x88888844      /*  PD7...PD0 */
 #define VAL_GPIODCRH            0x88888888      /* PD15...PD8 */
@@ -118,12 +128,12 @@
 /*
  * USB bus activation macro, required by the USB driver.
  */
-#define usb_lld_connect_bus(usbp) palClearPad(GPIOC, GPIOC_USB_DISC)
+#define usb_lld_connect_bus(usbp) /* always connected */
 
 /*
  * USB bus de-activation macro, required by the USB driver.
  */
-#define usb_lld_disconnect_bus(usbp) palSetPad(GPIOC, GPIOC_USB_DISC)
+#define usb_lld_disconnect_bus(usbp) /* always connected */
 
 #if !defined(_FROM_ASM_)
 #ifdef __cplusplus
