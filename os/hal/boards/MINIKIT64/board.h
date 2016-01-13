@@ -18,7 +18,7 @@
 #define _BOARD_H_
 
 /*
- * Setup for the Olimex STM32-P103 proto board.
+ * Setup for the STM32 Minikit 64 board.
  */
 
 /*
@@ -79,13 +79,13 @@
 /*
  * Port A setup.
  * Everything input with pull-up except:
- * PA9  - Normal input      (USART1 TX).
+ * PA9  - Alternate output  (USART1 TX).
  * PA10 - Normal input      (USART1 RX).
  * PA11 - Normal input      (USB DM).
  * PA12 - Normal input      (USB DP).
  */
 #define VAL_GPIOACRL            0x88888888      /*  PA7...PA0 */
-#define VAL_GPIOACRH            0x88844448      /* PA15...PA8 */
+#define VAL_GPIOACRH            0x888444B8      /* PA15...PA8 */
 #define VAL_GPIOAODR            0xFFFFFFFF
 
 /*
