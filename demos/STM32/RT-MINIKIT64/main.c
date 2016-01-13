@@ -55,8 +55,7 @@ int main(void) {
    * Activates the serial driver 1 at 115200 bps.
    * PA9(TX) and PA10(RX) are routed to USART1.
    */
-  SerialConfig sd_config = { speed: 115200 };
-  sdStart(&SD2, &sd_config);
+  sdStart(&SD1, NULL);
 
   /*
    * Creates the example thread.
@@ -69,7 +68,7 @@ int main(void) {
    */
   int seconds = 0;
   while (true) {
-    if (++seconds % 60 == 0) TestThread(&SD2);
+    if (++seconds % 10 == 0) TestThread(&SD1);
     chThdSleepMilliseconds(1000);
   }
 }
