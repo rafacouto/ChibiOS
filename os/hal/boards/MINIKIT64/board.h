@@ -79,8 +79,8 @@
 /*
  * Port A setup.
  * Everything input with pull-up except:
- * PA9  - Normal input      (USART1 TX).
- * PA10 - Normal input      (USART1 RX).
+ * PA9  - Alternate output  (USART1 TX).
+ * PA10 - Alternate output  (USART1 RX).
  * PA11 - Normal input      (USB DM).
  * PA12 - Normal input      (USB DP).
  */
@@ -94,7 +94,7 @@
  * PB0  - Push Pull output  (LED).
  */
 #define VAL_GPIOBCRL            0x88888883      /*  PB7...PB0 */
-#define VAL_GPIOBCRH            0x88888888      /* PB15...PB8 */
+#define VAL_GPIOBCRH            0x88888448      /* PB15...PB8 */
 #define VAL_GPIOBODR            0xFFFFFFFF
 
 /*
