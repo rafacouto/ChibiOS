@@ -85,7 +85,7 @@
  * PA12 - Normal input      (USB DP).
  */
 #define VAL_GPIOACRL            0x88888888      /*  PA7...PA0 */
-#define VAL_GPIOACRH            0x88844448      /* PA15...PA8 */
+#define VAL_GPIOACRH            0x88844BB8      /* PA15...PA8 */
 #define VAL_GPIOAODR            0xFFFFFFFF
 
 /*

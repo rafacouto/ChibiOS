@@ -68,7 +68,7 @@ int main(void) {
    */
   int seconds = 0;
   while (true) {
-    if (++seconds % 10 == 0) TestThread(&SD1);
+    if (++seconds % 20 == 0) TestThread(&SD1);
     chThdSleepMilliseconds(1000);
   }
 }
